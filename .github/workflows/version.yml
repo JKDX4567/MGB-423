@@ -1,0 +1,27 @@
+name: Auto-update version.tex
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate version.tex
+        run: |
+          SHORT_SHA=$(echo "${GITHUB_SHA}" | cut -c1-7)
+          DATE=$(date -u +"%Y-%m-%d")
+          echo "\newcommand{\VERSION}{Version ${DATE} (${SHORT_SHA})}" > version.tex
+
+      - name: Commit updated version.tex
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git add version.tex
+          git commit -m "Auto-update version file" || echo "No changes to commit"
+          git push
