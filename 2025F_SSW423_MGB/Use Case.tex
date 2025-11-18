@@ -1,0 +1,520 @@
+\index{Group #6 -- Use Cases}
+\chapter{Use Cases}
+\label{UseCase}
+
+% =====================================================
+% === 1) USER STORY DEFINITIONS =======================
+% =====================================================
+
+\section{User Story Definitions}
+
+\begin{userStory}[vp_painpoints]
+Whenever using Visual Paradigm, I often found myself spending more time wrestling with the interface than creating content.  
+Copying classes could unintentionally duplicate instances, and the tool never clearly explained when to use certain diagram types or blocks.  
+I want a system that is simpler, faster, and provides built-in explanations for its components.
+\end{userStory}
+
+\begin{userStory}[drawio_export]
+Using Draw.io makes exporting diagrams inconvenient since downloads are stored in \texttt{.xml} format.  
+When I need to insert diagrams into documents or slides, I’m forced to take screenshots, which are not editable or scalable.  
+I want an export format like EPS that maintains quality and compatibility with publishing tools.
+\end{userStory}
+
+\begin{userStory}[collaboration]
+As a collaborator, I want to work on the same UML diagram in real time with my teammates so that we can build, modify, and review diagrams together without having to send files back and forth.  
+Collaboration should be smooth and synchronized, reducing confusion and version mismatches.
+\end{userStory}
+
+\begin{userStory}[versioning]
+When I work on large UML projects, I often make accidental edits and lose previous versions.  
+I want the system to keep track of past versions or changes so that I can easily revert to a previous state without rebuilding the entire diagram from scratch.
+\end{userStory}
+
+
+% =====================================================
+% === 2) USE CASE DEFINITIONS =========================
+% =====================================================
+
+\section{Use Case Definitions}
+
+\begin{useCase}[create_export]
+A user wants to create a UML diagram and export it as an EPS file.  
+This use case covers the creation, editing, and exporting workflow, including verifying that exported diagrams maintain visual fidelity and correct structure when imported into documents or tools.
+\end{useCase}
+
+\begin{useCase}[guided_creation]
+A new or inexperienced user wants to create a UML diagram while receiving immediate help.  
+The system provides contextual guidance, tooltips, or an interactive tutorial explaining different block types and their relationships as the user constructs a diagram.
+\end{useCase}
+
+\begin{useCase}[advanced_editing]
+An experienced user wants to make fine-grained changes to a UML diagram, including modifying or creating custom blocks, adjusting connections, and refining layout.  
+This use case emphasizes control, customization, and efficiency for advanced users who understand UML standards.
+\end{useCase}
+
+
+% =====================================================
+% === 3) REQUIREMENT DEFINITIONS (UR + SR + NFR + DR) ==
+% =====================================================
+
+\section{Requirement Definitions}
+
+% -------------------------
+% User Requirements (UR)
+% -------------------------
+\subsection{User Requirements}
+
+\begin{reqkUser}[shareable_file]
+The user shall be able to create a sharable file that they can distribute to group mates or collaborators.  
+This requirement ensures collaboration by allowing easy sharing of editable diagram files without exporting or manually sending large data blobs.
+\end{reqkUser}
+
+\begin{reqkUser}[eps_export]
+The user shall be able to export diagrams as Encapsulated PostScript (EPS) files.  
+This allows integration with academic papers, technical reports, and vector-based graphics workflows, ensuring high-quality exports for printing and publishing.
+\end{reqkUser}
+
+\begin{reqkUser}[uml_block_creation]
+The user shall be able to create their own custom UML blocks for reuse in different diagrams.  
+This supports flexibility and modularity in design by letting users define personalized visual elements tailored to their use cases.
+\end{reqkUser}
+
+\begin{reqkUser}[info_guide]
+The system shall provide a dedicated guide or help tab that describes all available blocks, their purposes, and example usage.  
+This improves usability for new users by giving accessible in-application guidance on when and how to use each diagram element.
+\end{reqkUser}
+
+% -------------------------
+% System Requirements (SR)
+% -------------------------
+\subsection{System Requirements}
+
+\begin{reqkSystem}[uml_types]
+\textbf{Main UML Diagram Types Requirement}\par
+The system shall be able to create a display of a UML diagram based on the six main types (Sequence, Object, Class, Use Case, Activity, and State).
+\end{reqkSystem}
+
+\begin{reqkSystem}[drag_and_drop]
+\textbf{Drag-and-Drop Requirement}\par
+The system shall have the tools necessary to create UML diagrams using a drag-and-drop interface.
+\end{reqkSystem}
+
+\begin{reqkSystem}[copy_new_instance]
+\textbf{New Instance Copying Requirement}\par
+The system shall allow users to copy and modify blocks independently without affecting the original.
+\end{reqkSystem}
+
+\begin{reqkSystem}[direct_block_editing]
+\textbf{Direct Block Editing Requirement}\par
+The system shall allow text editing directly on a block rather than through a separate input field.
+\end{reqkSystem}
+
+\begin{reqkSystem}[github_sync]
+\textbf{GitHub Synchronization Requirement}\par
+The system shall synchronize with GitHub to allow collaborative editing and version management.
+\end{reqkSystem}
+
+\begin{reqkSystem}[multi_user_collab]
+\textbf{Multi-User Collaboration Requirement}\par
+The system shall allow multiple users to collaborate on a single project simultaneously.
+\end{reqkSystem}
+
+\begin{reqkSystem}[version_history]
+\textbf{Version History Requirement}\par
+The system shall maintain a version history to track and retrieve edits made to diagrams.
+\end{reqkSystem}
+
+% -------------------------
+% Non-Functional Requirements (NFR)
+% -------------------------
+\subsection{Non-Functional Requirements}
+
+\begin{reqkNonFunctional}[version_store_3]
+\textbf{3-Version Storing Requirement}\par
+The system shall be able to store the latest three versions of edits for each project.
+\end{reqkNonFunctional}
+
+\begin{reqkNonFunctional}[storage_footprint_10gb]
+\textbf{Total Storage Footprint Requirement}\par
+The system shall not exceed a total storage footprint of 10~GB, including all user data and cached diagrams.
+\end{reqkNonFunctional}
+
+\begin{reqkNonFunctional}[system_speed_5s]
+\textbf{System Speed Requirement}\par
+The system shall take no longer than five seconds to start and no longer than five seconds to load any saved diagram.
+\end{reqkNonFunctional}
+
+% -------------------------
+% Domain Requirements (DR)
+% -------------------------
+\subsection{Domain Requirements}
+
+\begin{reqkDomain}[prebuilt_uml_standards]
+\textbf{Prebuilt UML Standards Requirement}\par
+The system shall only provide prebuilt options that comply with UML standards.
+\end{reqkDomain}
+
+\begin{reqkDomain}[licensing_gpl3]
+\textbf{Licensing Requirement}\par
+The system shall remain under the GPL~3.0 open-source license.
+\end{reqkDomain}
+
+\begin{reqkDomain}[standard_uml_notation]
+\textbf{Standard UML Notation Requirement}\par
+The system shall follow standard UML notation.
+\end{reqkDomain}
+
+\begin{reqkDomain}[eps_exportation_domain]
+\textbf{EPS Exportation Requirement}\par
+The system shall use EPS format to allow for exportation.
+\end{reqkDomain}
+
+
+% =====================================================
+% === 4) CONSTRAINT DEFINITIONS =======================
+% =====================================================
+
+\section{Constraint Definitions}
+
+\begin{reqkConstraint}[app_only]
+\textbf{Application Form Constraint}\par
+Must be an application.
+\end{reqkConstraint}
+
+\begin{reqkConstraint}[basic_laptops]
+\textbf{Hardware Profile Constraint}\par
+Must be able to be processed on basic laptops for macOS and Windows.
+\end{reqkConstraint}
+
+\begin{reqkConstraint}[eps_first]
+\textbf{Export Priority Constraint}\par
+Must allow for EPS conversion above all else.
+\end{reqkConstraint}
+
+
+
+% =====================================================
+% === TABLES (IN NEW ORDER) ===========================
+% =====================================================
+
+% -------------------------
+% A) USER STORIES TABLE (first)
+% -------------------------
+\section{User Stories Table}
+\begin{longtable}{|p{1.8cm}|p{10.2cm}|p{3cm}|}
+\caption{User Stories Table \label{tab:user_stories}}\\
+\hline
+\textbf{User Story ID} & \textbf{Story} & \textbf{Linked Requirement(s)} \\
+\hline
+\endhead
+
+\USref{vp_painpoints} &
+\textbf{\USnamelink{vp_painpoints}{Visual Paradigm Pain Points}} &
+\URref{uml_block_creation}, \URref{info_guide}, \SRref{direct_block_editing}, \SRref{copy_new_instance}, \DRref{standard_uml_notation} \\
+\hline
+
+\USref{drawio_export} &
+\textbf{\USnamelink{drawio_export}{Draw.io Export Friction}} &
+\URref{eps_export}, \URref{info_guide}, \DRref{eps_exportation_domain} \\
+\hline
+
+\USref{collaboration} &
+\textbf{\USnamelink{collaboration}{Real-Time Collaboration}} &
+\URref{shareable_file}, \SRref{github_sync}, \SRref{multi_user_collab} \\
+\hline
+
+\USref{versioning} &
+\textbf{\USnamelink{versioning}{Version History}} &
+\URref{shareable_file}, \SRref{version_history}, \NFRref{version_store_3} \\
+\hline
+
+\end{longtable}
+
+
+% -------------------------
+% B) USE CASE COVERAGE TABLE (second)
+% -------------------------
+\section{Use Case Coverage Table}
+\begin{longtable}{|p{2.2cm}|p{10.6cm}|p{3.2cm}|}
+\caption{Use Case Coverage Table \label{tab:use_case_coverage}}\\
+\hline
+\textbf{Use Case} & \textbf{Description} & \textbf{Covered Requirements} \\
+\hline
+\endfirsthead
+\hline
+\textbf{Use Case} & \textbf{Description} & \textbf{Covered Requirements} \\
+\hline
+\endhead
+
+\UCref{create_export} &
+\textbf{\UCnamelink{create_export}{Create \& Export}}\newline
+A user wants to create a UML diagram and export to EPS.
+&
+\SRref{uml_types}\newline
+\SRref{drag_and_drop}\newline
+\SRref{direct_block_editing}\newline
+\SRref{version_history}\newline
+\URref{shareable_file}\newline
+\URref{eps_export}\newline
+\DRref{standard_uml_notation}\newline
+\DRref{eps_exportation_domain}\newline
+\NFRref{version_store_3}\newline
+\NFRref{system_speed_5s} \\
+\hline
+
+\UCref{guided_creation} &
+\textbf{\UCnamelink{guided_creation}{Guided Creation}}\newline
+A user is new to creating UML diagrams and wants to create one while getting immediate help.
+&
+\SRref{uml_types}\newline
+\SRref{drag_and_drop}\newline
+\SRref{direct_block_editing}\newline
+\URref{info_guide}\newline
+\DRref{prebuilt_uml_standards}\newline
+\DRref{standard_uml_notation} \\
+\hline
+
+\UCref{advanced_editing} &
+\textbf{\UCnamelink{advanced_editing}{Advanced Editing}}\newline
+An experienced user wants fine-grained control over blocks and other advanced features.
+&
+\SRref{uml_types}\newline
+\SRref{copy_new_instance}\newline
+\SRref{github_sync}\newline
+\SRref{multi_user_collab}\newline
+\SRref{version_history}\newline
+\URref{shareable_file}\newline
+\URref{uml_block_creation}\newline
+\DRref{prebuilt_uml_standards}\newline
+\DRref{licensing_gpl3}\newline
+\NFRref{version_store_3}\newline
+\NFRref{storage_footprint_10gb}\newline
+\NFRref{system_speed_5s} \\
+\hline
+
+\end{longtable}
+
+
+% -------------------------
+% C) REQUIREMENT TABLES (third)
+% -------------------------
+\section{User Requirements Table}
+\begin{longtable}{|p{1.2cm}|p{10.6cm}|p{1.2cm}|p{2.2cm}|}
+\caption{User Requirements Table \label{tab:user_requirements_split}}\\
+\hline
+\textbf{ID} & \textbf{User Requirement Definition} & \textbf{Priority} & \textbf{Use Case / Story} \\
+\hline
+\endhead
+
+\URref{shareable_file} &
+\textbf{\URnamelink{shareable_file}{Shareable File Requirement}}\newline
+\textit{The user shall be able to create a sharable file that they can share with group mates.}
+& \gls{must} &
+\UCref{create_export}\newline
+\UCref{advanced_editing}\newline
+\USref{collaboration} \\
+\hline
+
+\URref{eps_export} &
+\textbf{\URnamelink{eps_export}{EPS Exportation Requirement}}\newline
+\textit{The user shall be able to export diagrams as EPS.}
+& \gls{must} &
+\UCref{create_export}\newline
+\USref{drawio_export} \\
+\hline
+
+\URref{uml_block_creation} &
+\textbf{\URnamelink{uml_block_creation}{UML Block Creation Requirement}}\newline
+\textit{The user shall be able to create their own blocks to be used in UML diagrams.}
+& \gls{should} &
+\UCref{advanced_editing}\newline
+\USref{vp_painpoints} \\
+\hline
+
+\URref{info_guide} &
+\textbf{\URnamelink{info_guide}{Info Guide Requirement}}\newline
+\textit{The system shall have a guide tab that describes the different “blocks” of the drag-and-drop system, including when to use them and example usage.}
+& \gls{should} &
+\UCref{guided_creation}\newline
+\USref{vp_painpoints} \\
+\hline
+
+\end{longtable}
+
+\section{System Requirements}
+\begin{longtable}{|p{1.2cm}|p{10.6cm}|p{1.2cm}|p{2.2cm}|}
+\caption{System Requirements Table \label{tab:system_requirements}}\\
+\hline
+\textbf{ID} & \textbf{System Requirement Definition} & \textbf{Priority} & \textbf{Use Case / Story} \\
+\hline
+\endhead
+
+\SRref{uml_types} &
+\textbf{\SRnamelink{uml_types}{Main UML Diagram Types Requirement}}\newline
+\textit{The system shall be able to create a display of a UML diagram based on the six main types (Sequence, Object, Class, Use Case, Activity, and State).}
+& \gls{must} &
+\UCref{create_export}\newline
+\UCref{guided_creation}\newline
+\UCref{advanced_editing} \\
+\hline
+
+\SRref{drag_and_drop} &
+\textbf{\SRnamelink{drag_and_drop}{Drag-and-Drop Requirement}}\newline
+\textit{The system shall have the tools necessary to create UML diagrams using a drag-and-drop interface.}
+& \gls{must} &
+\UCref{create_export}\newline
+\UCref{guided_creation} \\
+\hline
+
+\SRref{copy_new_instance} &
+\textbf{\SRnamelink{copy_new_instance}{New Instance Copying Requirement}}\newline
+\textit{The system shall allow users to copy and modify blocks independently without affecting the original.}
+& \gls{should} &
+\UCref{create_export}\newline
+\UCref{advanced_editing}\newline
+\USref{vp_painpoints} \\
+\hline
+
+\SRref{direct_block_editing} &
+\textbf{\SRnamelink{direct_block_editing}{Direct Block Editing Requirement}}\newline
+\textit{The system shall allow text editing directly on a block rather than through a separate input field.}
+& \gls{should} &
+\UCref{create_export}\newline
+\UCref{guided_creation} \\
+\hline
+
+\SRref{github_sync} &
+\textbf{\SRnamelink{github_sync}{GitHub Synchronization Requirement}}\newline
+\textit{The system shall synchronize with GitHub to allow collaborative editing and version management.}
+& \gls{should} &
+\UCref{advanced_editing}\newline
+\USref{collaboration} \\
+\hline
+
+\SRref{multi_user_collab} &
+\textbf{\SRnamelink{multi_user_collab}{Multi-User Collaboration Requirement}}\newline
+\textit{The system shall allow multiple users to collaborate on a single project simultaneously.}
+& \gls{would} &
+\UCref{advanced_editing}\newline
+\USref{collaboration} \\
+\hline
+
+\SRref{version_history} &
+\textbf{\SRnamelink{version_history}{Version History Requirement}}\newline
+\textit{The system shall maintain a version history to track and retrieve edits made to diagrams.}
+& \gls{would} &
+\UCref{create_export}\newline
+\UCref{advanced_editing}\newline
+\USref{versioning} \\
+\hline
+
+\end{longtable}
+
+\section{Non-Functional Requirements}
+\begin{longtable}{|p{1.2cm}|p{10.6cm}|p{1.2cm}|p{2.2cm}|}
+\caption{Non-Functional Requirements Table \label{tab:nonfunctional_requirements}}\\
+\hline
+\textbf{ID} & \textbf{Non-Functional Requirement Definition} & \textbf{Priority} & \textbf{Use Case / Story} \\
+\hline
+\endhead
+
+\NFRref{version_store_3} &
+\textbf{\NFRnamelink{version_store_3}{3-Version Storing Requirement}}\newline
+\textit{The system shall be able to store the latest three versions of edits for each project.}
+& \gls{should} &
+\UCref{create_export}\newline
+\UCref{advanced_editing}\newline
+\USref{versioning} \\
+\hline
+
+\NFRref{storage_footprint_10gb} &
+\textbf{\NFRnamelink{storage_footprint_10gb}{Total Storage Footprint Requirement}}\newline
+\textit{The system shall not exceed a total storage footprint of 10~GB, including all user data and cached diagrams.}
+& \gls{would} &
+\UCref{advanced_editing} \\
+\hline
+
+\NFRref{system_speed_5s} &
+\textbf{\NFRnamelink{system_speed_5s}{System Speed Requirement}}\newline
+\textit{The system shall take no longer than five seconds to start and no longer than five seconds to load any saved diagram.}
+& \gls{must} &
+\UCref{create_export}\newline
+\UCref{advanced_editing} \\
+\hline
+
+\end{longtable}
+
+\section{Domain Requirements}
+\begin{longtable}{|p{1.2cm}|p{10.6cm}|p{1.2cm}|p{2.2cm}|}
+\caption{Domain Requirements Table \label{tab:domain_requirements}}\\
+\hline
+\textbf{ID} & \textbf{Domain Requirement Definition} & \textbf{Priority} & \textbf{Use Case / Story} \\
+\hline
+\endhead
+
+\DRref{prebuilt_uml_standards} &
+\textbf{\DRnamelink{prebuilt_uml_standards}{Prebuilt UML Standards Requirement}}\newline
+\textit{The system shall only provide prebuilt options that comply with UML standards.}
+& \gls{must} &
+\UCref{guided_creation}\newline
+\UCref{advanced_editing}\newline
+\USref{vp_painpoints} \\
+\hline
+
+\DRref{licensing_gpl3} &
+\textbf{\DRnamelink{licensing_gpl3}{Licensing Requirement}}\newline
+\textit{The system shall remain under the GPL~3.0 open-source license.}
+& \gls{must} &
+\UCref{advanced_editing}\newline
+\USref{collaboration} \\
+\hline
+
+\DRref{standard_uml_notation} &
+\textbf{\DRnamelink{standard_uml_notation}{Standard UML Notation Requirement}}\newline
+\textit{The system shall follow standard UML notation.}
+& \gls{must} &
+\UCref{create_export}\newline
+\UCref{guided_creation}\newline
+\USref{vp_painpoints} \\
+\hline
+
+\DRref{eps_exportation_domain} &
+\textbf{\DRnamelink{eps_exportation_domain}{EPS Exportation Requirement}}\newline
+\textit{The system shall use EPS format to allow for exportation.}
+& \gls{must} &
+\UCref{create_export}\newline
+\USref{drawio_export} \\
+\hline
+
+\end{longtable}
+
+
+% -------------------------
+% D) CONSTRAINT TABLE (fourth)
+% -------------------------
+\section{Constraints}
+\begin{longtable}{|p{2.2cm}|p{13.0cm}|}
+\caption{Constraint Table \label{tab:constraints}}\\
+\hline
+\textbf{Constraint} & \textbf{Description} \\
+\hline
+\endhead
+
+\CRref{app_only} &
+\textbf{\CRnamelink{app_only}{Application Form Constraint}}\newline
+Must be an application. \\
+\hline
+
+\CRref{basic_laptops} &
+\textbf{\CRnamelink{basic_laptops}{Hardware Profile Constraint}}\newline
+Must be able to be processed on basic laptops for macOS and Windows. \\
+\hline
+
+\CRref{eps_first} &
+\textbf{\CRnamelink{eps_first}{Export Priority Constraint}}\newline
+Must allow for EPS conversion above all else. \\
+\hline
+
+\end{longtable}
+
+\clearpage

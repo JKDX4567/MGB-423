@@ -1,0 +1,278 @@
+\chapter{Activity Diagrams And Use Case Diagrams}\label{ch:activity and use case-diagram}
+
+\section{Use Case Diagram for Use Case UC-01}\label{uc-01}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-01}{UC-01}
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/use case diagram 1.png}
+  \centering
+  \caption{Use Case Diagram for UC-01}
+  \vspace{-0.3cm}
+\end{figure}
+
+
+
+
+\section{Use Case Diagram for Use Case UC-02}\label{uc-02}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-02}{UC-02}
+
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/usecase diagram 2.png}
+  \centering
+  \caption{Use Case Diagram for UC-02}
+  \vspace{-0.3cm}
+\end{figure}
+
+
+\newpage
+\section{Use Case Diagram for Use Case UC-03}\label{uc-03}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-03}{UC-03}
+
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/use case diagram 3.png}
+  \centering
+  \caption{Use Case Diagram for UC-03}
+  \vspace{-0.3cm}
+\end{figure}
+
+\newpage
+
+
+
+
+\section{Activity Diagram For Use Case UC-01}\label{uc-01}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-01}{UC-01}
+
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/activity diagram 1.png}
+  \centering
+  \caption{Activity Diagram for UC-01}
+  \vspace{-0.3cm}
+\end{figure}
+
+
+
+
+\section{Activity Diagram For Use Case UC-02}\label{uc-02}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-02}{UC-02}
+
+
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/activity diagram 2.png}
+  \caption{Activity Diagram for UC-02}
+  \vspace{-0.3cm}
+\end{figure}
+
+\newpage
+
+
+\section{Activity Diagram For Use Case UC-03}\label{uc-03}
+
+\noindent\textbf{Linked to the use case:} \hyperlink{UC-03}{UC-03}
+
+\begin{figure} [H]
+\includegraphics[width=\textwidth]{png/activity diagram 3.png}
+  \centering
+  \caption{Activity Diagram for UC-03}
+  \vspace{-0.3cm}
+\end{figure}
+
+
+\section{Use Case Specifications For Use Case}
+
+
+
+
+
+
+
+\definecolor{ucHeader}{HTML}{EEF2F7}
+\definecolor{ucLabel}{HTML}{F7F9FC}
+\newcolumntype{L}[1]{>{\RaggedRight\arraybackslash\bfseries}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{L{0.30\linewidth} Y}
+\toprule
+\rowcolor{ucHeader}
+\multicolumn{2}{l}{\textbf{Use case: Create UML Diagram and Export to EPS }}\\
+\midrule
+\rowcolor{ucLabel} Use case identifier & \hyperlink{UC-01}{UC-01} \\
+\textbf{Brief description} & A user launches the UML tool, creates (or opens) a diagram, and exports the result to an EPS file. \\
+\rowcolor{ucLabel} \textbf{Primary actors} & User \\
+\textbf{Secondary actors} & File System  \\
+\rowcolor{ucLabel} \textbf{Preconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item Application is available and starts successfully.
+  \item User has permission to create and save files.
+  \item Workspace is initialized.
+\end{enumerate} \\
+\textbf{Main flow} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item User launches the tool.
+  \item System loads the workspace and shows \emph{New} or \emph{Open}.
+  \item User chooses \emph{New} diagram or load diagram.
+  \item User adds/arranges blocks, connects them, and edits text.
+  \item System validates UML notation.
+  \item System creates a version snapshot.
+  \item User chooses \emph{Export} $\rightarrow$ \emph{EPS}.
+  \item System confirms success and shows the file location.
+\end{enumerate} \\
+\rowcolor{ucLabel} \textbf{Postconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item EPS file exists at the chosen location.
+  \item Latest diagram state is saved (version snapshot updated).
+\end{enumerate} \\
+\textbf{Alternative flows} &
+\textbf{Open existing} — In Step 3 the user selects \emph{Open}; the system loads a prior diagram, then continue at Step 4.\\[-2pt]
+& \textbf{Validation issues} — In Step 5 the system highlights problems; the user fixes the diagram and re-validates, then proceed to Step 6.\\[-2pt]
+& \textbf{Export failure} — In Step 8 rendering or write fails; the system shows an error and the user retries or cancels. \\
+\rowcolor{ucLabel} \textbf{Related requirements} &
+\hyperlink{SR-01}{SR-01}, \hyperlink{SR-02}{SR-02}, \hyperlink{SR-03}{SR-03}, \hyperlink{SR-04}{SR-04}, \hyperlink{SR-07}{SR-07}; \hyperlink{UR-01}{UR-01}, \hyperlink{UR-02}{UR-02}; \hyperlink{DR-03}{DR-03}, \hyperlink{DR-04}{DR-04}; \hyperlink{NFR-01}{NFR-01}, \hyperlink{NFR-03}{NFR-03} \\
+\bottomrule
+\end{tabularx}
+\caption{Use Case Specifications For Use Case UC-01}
+\end{table}
+
+
+
+
+
+
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{L{0.30\linewidth} Y}
+\toprule
+\rowcolor{ucHeader}
+\multicolumn{2}{l}{\textbf{Use case: Create UML Diagram with Guided Help (UC-02)}}\\
+\midrule
+\rowcolor{ucLabel} Use case identifier & \hyperlink{UR-02}{UR-02} \\
+\textbf{Brief description} &
+A novice user creates a UML diagram using \emph{Guided Mode} with contextual hints and immediate help (docs/examples/assistant). \\
+\rowcolor{ucLabel} \textbf{Primary actors} & New User \\
+\textbf{Secondary actors} & Help/Docs Service, Assistant Chat, File System \\
+\rowcolor{ucLabel} \textbf{Preconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item Application launches successfully; workspace is initialized.
+  \item Help content is available (local cache or network).
+\end{enumerate} \\
+\textbf{Main flow} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item User launches the tool; system offers \emph{Guided Mode}.
+  \item System enables step-by-step hints and pins the Help panel.
+  \item User chooses to start from a \emph{Template} or load diagram
+  \item Guided hint: add and arrange blocks.
+  \item Guided hint: connect blocks.
+  \item Guided hint: edit text/labels.
+  \item System validates UML notation (non-blocking issues shown inline).
+  \item System saves a version snapshot.
+  \item User can finish or continue editing (export optional, see UC-01).
+\end{enumerate} \\
+\rowcolor{ucLabel} \textbf{Postconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item A valid diagram exists and is saved.
+  \item The user has received contextual guidance for key steps.
+\end{enumerate} \\
+\textbf{Alternative flows} &
+\textbf{Switch to Standard} — At Step 1 the user selects Standard mode; proceed with UC-01 main flow.\\[-2pt]
+& \textbf{Immediate Help} — At any step the user opens Help: search docs, view example snippet, or ask assistant; resume at the current step.\\[-2pt]
+& \textbf{Validation Issues} — At Step 7 the system highlights problems; user applies fixes; re-validate, then continue to Step 8.\\[-2pt]
+& \textbf{Help Unavailable} — If online help is unreachable, system falls back to local tips; user may retry later. \\
+\rowcolor{ucLabel} \textbf{Related requirements} &
+\hyperlink{SR-01}{SR-01}, \hyperlink{SR-02}{SR-02}, \hyperlink{SR-04}{SR-04}; \hyperlink{UR-04}{UR-04}; \hyperlink{DR-01}{DR-01}, \hyperlink{DR-03}{DR-03}. \\
+\bottomrule
+\end{tabularx}
+\caption{Use Case UC-02: Guided creation with immediate help}
+\end{table}
+
+
+% UC-03 Use Case Table — Advanced editing / power-user features
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{L{0.30\linewidth} Y}
+\toprule
+\rowcolor{ucHeader}
+\multicolumn{2}{l}{\textbf{Use case: Advanced Create \& Modify with Pro Features (UC-03)}}\\
+\midrule
+\rowcolor{ucLabel} Use case identifier & \hyperlink{UC-03}{UC-03} \\
+\textbf{Brief description} &
+An experienced user tailors a UML diagram with advanced controls (custom blocks, precise connections, styles, auto-layout, macros), validates it, and optionally exports (EPS/JPG/PNG). \\
+\rowcolor{ucLabel} \textbf{Primary actors} & Experienced User \\
+\textbf{Secondary actors} &
+File System; Layout Engine; Style/Theme Manager; Library Manager (Custom Blocks); Versioning Service \\
+\rowcolor{ucLabel} \textbf{Preconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item Application launches; workspace is initialized.
+  \item User preferences (grid/snap, shortcuts) and libraries are available.
+  \item User has permission to read/write project files.
+\end{enumerate} \\
+\textbf{Main flow} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item User launches the tool; system loads workspace and preferences.
+  \item User chooses \emph{New} or \emph{Open} diagram.
+  \item \textbf{Advanced editing loop:}
+        select block $\rightarrow$ edit properties /
+        define custom block \& save to library / connect with constraints \& labels /
+        align \& auto-layout / apply style or theme.
+  \item System validates UML.
+  \item System saves a version snapshot.
+  \item (Optional) User compares with previous version and keeps/reverts.
+  \item User chooses \emph{Export} $\rightarrow$ EPS (optionally JPG/PNG or batch).
+  \item System renders and writes file(s), then confirms location.
+\end{enumerate} \\
+\rowcolor{ucLabel} \textbf{Postconditions} &
+\begin{enumerate}[leftmargin=*, itemsep=1pt, topsep=2pt]
+  \item Diagram with advanced edits is saved.
+  \item Version history updated; any custom blocks/styles saved to library.
+  \item Exported file(s) exist at the chosen location.
+\end{enumerate} \\
+\end{tabularx}
+\caption{Use Case UC-03: Advanced editing and pro features}
+\end{table}
+
+
+% UC-03 Use Case Table — Advanced editing / power-user features
+\begin{table}[htbp]
+\centering
+\setlength{\tabcolsep}{6pt}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabularx}{\linewidth}{L{0.30\linewidth} Y}
+\toprule
+\rowcolor{ucHeader}
+\multicolumn{2}{l}{\textbf{Use case: Advanced Create \& Modify with Pro Features (UC-03)}}\\
+\midrule
+
+\textbf{Alternative flows} &
+\textbf{Missing assets} — When opening, referenced fonts/images not found; system prompts to locate/replace, then continue.\\[-2pt]
+& \textbf{Validation violations} — Lint flags issues; system highlights and suggests fixes; user corrects and re-validates.\\[-2pt]
+& \textbf{Export failure} — Render/write error; system shows message; user retries or cancels.\\[-2pt]
+& \textbf{Revert changes} — User uses version compare to restore an earlier snapshot. \\
+\rowcolor{ucLabel} \textbf{Related requirements} &
+\hyperlink{SR-01}{SR-01}, \hyperlink{SR-02}{SR-02}, \hyperlink{SR-03}{SR-03}, \hyperlink{SR-04}{SR-04}, \hyperlink{SR-07}{SR-07}; \hyperlink{UR-01}{UR-01}, \hyperlink{UR-02}{UR-02}; \hyperlink{DR-03}{DR-03}, \hyperlink{DR-04}{DR-04};\hyperlink{NFR-01}{NFR-01}, \hyperlink{NFR-03}{NFR-03}. \\
+\bottomrule
+\end{tabularx}
+\caption{Use Case UC-03: Advanced editing and pro features}
+
+\clearpage
+
+
+
+\section{Class Diagrams}
+
+
+
+
+xxxx
+\end{table}
